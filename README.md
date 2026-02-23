@@ -73,6 +73,14 @@ GOOGLE_MODEL=modelName eg. gemini-2.5-flash
 AWS_ACCESS_KEY_ID=...
 AWS_SECRET_ACCESS_KEY=...
 AWS_DEFAULT_REGION=eu-north-1
+
+# SSL Configuration for Corporate Networks
+# WARNING: Only use DISABLE_SSL_VERIFY for testing!
+# For production, use SSL_CERT_FILE with your corporate CA certificate
+DISABLE_SSL_VERIFY=true
+
+# Optional: AWS Role ARN
+# AWS_ROLE_ARN=arn:aws:iam::ACCOUNT:role/ROLE_NAME
 ```
 
 
