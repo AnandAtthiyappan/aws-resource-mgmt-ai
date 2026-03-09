@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 st.set_page_config(page_title="AWS Chatbot", layout="centered")
-st.title("AI AWS Chatbot - Basic Infrastructrure Management")
+st.title("AI chatbot - AWS Infrastructrure Management")
 
 # Initialize conversation state
 if "messages" not in st.session_state:
@@ -34,7 +34,7 @@ if user_input:
                     }
                 )
 
-                print("AI RESPONSE : *****************")
+                print("------------- AI RESPONSE -------------")
                 print(response.text)
 
                 data = response.json()

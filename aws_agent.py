@@ -153,10 +153,11 @@ class AWSAgenticAgent:
 
     def _execute_aws_operation(self, operation: str, resource_type: str, 
                               identifier: str = None, properties: Dict = None, 
-                              region: str = "eu-north-1") -> Dict[str, Any]:
+                              region: str = None) -> Dict[str, Any]:
         """Execute AWS Cloud Control API operation"""
         
         try:
+            region = region or self.aws_config.region
             session = self.aws_config.get_session()
             cloudcontrol = session.client('cloudcontrol', region_name=region)
             normalized_properties = self._to_json_compatible(properties) if properties is not None else None
@@ -373,10 +374,11 @@ class AWSAgenticAgent:
             }
 
     def _list_ecs_clusters(self, operation: str = "list", cluster_names: List[str] = None, 
-                          region: str = "eu-north-1") -> Dict[str, Any]:
+                          region: str = None) -> Dict[str, Any]:
         """List or describe ECS clusters"""
         
         try:
+            region = region or self.aws_config.region
             session = self.aws_config.get_session()
             ecs_client = session.client('ecs', region_name=region)
             
